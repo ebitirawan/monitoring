@@ -57,55 +57,23 @@ $route['login'] = 'auth';
 $route['login_proses'] = 'auth/proses';
 $route['logout'] = 'auth/logout';
 
-// Data Alkon 
-$route['alkon_masuk'] = 'alkon_masuk';
-$route['alkon_masuk_proses'] = 'alkon_masuk/proses';
-$route['alkon_masuk_delete/(:any)'] = 'alkon_masuk/delete/$1';
+// Setting
+$route['setting'] = 'setting';
+$route['setting/update/(:any)'] = 'setting/update/$1';
 
-$route['alkon_keluar'] = 'alkon_keluar';
-$route['alkon_masuk_proses'] = 'alkon_masuk/proses';
-$route['alkon_masuk_delete/(:any)'] = 'alkon_masuk/delete/$1';
-
-$route['alkon_kadaluarsa'] = 'alkon_kadaluarsa';
-
-// master data 
 $route['user'] = 'user';
-$route['user_proses'] = 'user/proses';
-// $route['user/(:any)'] = 'user/show/$1';
-// $route['user_update/(:any)'] = 'user/update/$1';
-$route['user_reset/(:any)'] = 'user/reset/$1';
-$route['user_delete/(:any)'] = 'user/delete/$1';
+$route['user/add'] = 'user/add';
+$route['user/update'] = 'user/update';
+$route['user/(:any)'] = 'user/show/$1';
+$route['user/reset/(:any)'] = 'user/reset/$1';
+$route['user/delete/(:any)'] = 'user/delete/$1';
 
-$route['jns_alkon'] = 'jns_alkon';
-$route['jns_alkon_proses'] = 'jns_alkon/proses';
-$route['jns_alkon/(:any)'] = 'jns_alkon/show/$1';
-$route['jns_alkon_update/(:any)'] = 'jns_alkon/update/$1';
-$route['jns_alkon_delete/(:any)'] = 'jns_alkon/delete/$1';
+// Siswa
+$route['siswa'] = 'siswa';
+$route['siswa/add'] = 'siswa/add';
+$route['siswa/update'] = 'siswa/update';
+$route['siswa/delete'] = 'siswa/delete';
 
-$route['alkon'] = 'alkon';
-$route['alkon_proses'] = 'alkon/proses';
-$route['alkon_show/(:any)'] = 'alkon/show/$1';
-$route['alkon_update/(:any)'] = 'alkon/update/$1';
-$route['alkon_delete/(:any)'] = 'alkon/delete/$1';
+// Laporan
+$route['lapor'] = 'lapor';
 
-$route['faskes'] = 'faskes';
-$route['faskes_proses'] = 'faskes/proses';
-$route['faskes_show/(:any)'] = 'faskes/show/$1';
-$route['faskes_update/(:any)'] = 'faskes/update/$1';
-$route['faskes_delete/(:any)'] = 'faskes/delete/$1';
-
-$route['supplier'] = 'supplier';
-$route['supplier_proses'] = 'supplier/proses';
-$route['supplier_show/(:any)'] = 'supplier/show/$1';
-$route['supplier_update/(:any)'] = 'supplier/update/$1';
-$route['supplier_delete/(:any)'] = 'supplier/delete/$1';
-
-// Laporan Data Alkon 
-$route['laporan_masuk'] = 'laporan/masuk';
-$route['laporan_masuk_export'] = 'laporan/masuk_export';
-
-$route['laporan_keluar'] = 'laporan/keluar';
-$route['laporan_keluar_export'] = 'laporan/keluar_export';
-
-$route['laporan_kadaluarsa'] = 'laporan/kadaluarsa';
-$route['laporan_kadaluarsa_export'] = 'laporan/kadaluarsa_export';

@@ -1,6 +1,6 @@
 <?php
 
-class AlkonModel extends CI_Model
+class PelanggaranModel extends CI_Model
 {
 	public function get_all()
 	{
