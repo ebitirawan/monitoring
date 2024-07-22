@@ -22,45 +22,35 @@
 													<div class="row">
 														<div class="col-lg-6">
 															<div class="form-group">
-																<label for="alkon" class="text-gray-900">Alkon Masuk</label>
-																<select class="form-control form-control" id="alkon" name="alkon">
-																	<option value="" selected>Pilih Alkon</option>
-																</select>
-															</div>	
-															<div class="form-group">
-																<label for="no_batch" class="text-gray-900">No Batch</label>
-																<input type="text" class="form-control form-control"
-																	id="no_batch" name="no_batch" placeholder="Enter Name...">
-															</div>
-															<div class="form-group">
 																<label for="expired_date" class="text-gray-900">Tanggal Kadalursa</label>
 																<input type="date" class="form-control form-control"
 																	id="expired_date" name="expired_date">
 															</div>
+															<div class="form-group">
+																<label for="siswa" class="text-gray-900">Nama Siswa</label>
+																<select class="form-control form-control" id="siswa" name="siswa">
+																	<option value="" selected>Pilih Siswa</option>
+																</select>
+															</div>	
+															<div class="form-group">
+																<label for="perihal" class="text-gray-900">Perihal</label>
+																<input type="text" class="form-control form-control"
+																	id="perihal" name="perihal" placeholder="Enter perihal...">
+															</div>
+															
 														</div>
 														<div class="col-lg-6">
 															<div class="form-group">
-																<label for="supplier" class="text-gray-900">Supplier Pemasok</label>
-																<select class="form-control form-control" id="supplier" name="supplier">
-																	<option value="" selected>Pilih Supplier</option>
-																</select>
-															</div>
-															<div class="form-group">
-																<label for="stok" class="text-gray-900">Stok Awal</label>
-																<div class="row">
-																	<div class="col-lg-8">
-																	<input type="text" class="form-control form-control"
-																		id="stok" name="stok" placeholder="Enter Stok awal...">
-																	</div>
-																	<div class="col-lg-4 text-center">
-																		<span class="input-group-text" id="satuan">Butir</span>
-																	</div>
-																</div>
-															</div>
+                                                      
+                                                        <label for="detail_pelanggaran">Detail Pelanggaran:</label>
+                                                        <textarea class="form-control" name="detail_pelanggaran" id="detail_pelanggaran" rows="4" required></textarea>
+    
+                                                    </div>
+															
 														</div>
 													</div>
 													<button type="submit" class="btn btn-primary btn-user btn-block">
-														Login
+														Tambah Pelanggaran
 													</button>
 												</form>
 											</div>

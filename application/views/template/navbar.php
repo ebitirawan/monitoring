@@ -26,7 +26,7 @@
 			
 			<li class="nav-item">
 				<a class="nav-link" href="<?= base_url('lapor') ?>">
-                <i class="fas fa-fw fa-pills"></i>
+                <i class="fas fa-file-circle"></i>
 					<span>Pelaporan</span></a>
 			</li>
 				<!-- <?php if ($session->role == 0) { ?> -->
@@ -38,7 +38,7 @@
 
 					<li class="nav-item">
 						<a class="nav-link" href="<?= base_url('pemanggilan') ?>">
-							<i class="fas fa-fw fa-pills"></i>
+							<i class="fas fa-chart-pie"></i>
 							<span>Data Pelaporan</span></a>
 					</li>
 			
@@ -50,7 +50,7 @@
 					
 					<li class="nav-item">
 						<a class="nav-link" href="<?= base_url('siswa') ?>">
-						<i class="fas fa-fw fa-book"></i>
+						<i class="far fa-address-card"></i>
 							<span>Data Siswa</span></a>
 					</li>
 					
