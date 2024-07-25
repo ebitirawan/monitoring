@@ -54,8 +54,8 @@ class Siswa extends CI_Controller {
 	{
 		$id = $this->input->post('edit_siswa_id');
 
-		var_dump($id);
-		die;
+		// var_dump($id);
+		// die;
 		$data = array(
 			'nip_nisn' => $this->input->post('edit_nisn'),
 			'nama_siswa' => $this->input->post('edit_nama_siswa'),
@@ -68,8 +68,8 @@ class Siswa extends CI_Controller {
 			'updated_at' => date('Y-m-d H:i:s')
 		);
 
-		// $this->M_siswa->update($id, $data);
-		// redirect('siswa');
+		$this->M_siswa->update($id, $data);
+		redirect('siswa');
 	}
 
 	public function delete($id)
