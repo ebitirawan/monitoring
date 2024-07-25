@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+use GuzzleHttp\Client;
 class Data_pelanggaran extends CI_Controller {
 
 	public function __construct()
@@ -16,14 +16,14 @@ class Data_pelanggaran extends CI_Controller {
 	{
 		$data['title'] = $this->title;
 		$data['session'] = (object)$this->session;
-		// $data['walikelas'] = $this->M_pelanggaran->getPelanggaranBelumSelesaiWk(1);
-		// $data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesaiWk(1);
-		$data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesai();
+		$data['walikelas'] = $this->M_pelanggaran->getPelanggaranBelumSelesaiWk(1);
+		$data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesaiWk(1);
+		// $data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesai();
 		$this->load->view('template/header',$data);
 		$this->load->view('template/navbar',$data);
 		$this->load->view('template/topbar',$data);
-		// $this->load->view('main/data_pelanggaran/wali_kelas',$data);
-		$this->load->view('main/data_pelanggaran/index',$data);
+		$this->load->view('main/data_pelanggaran/wali_kelas',$data);
+		// $this->load->view('main/data_pelanggaran/index',$data);
 		$this->load->view('template/footer',$data);
 	}
 
@@ -52,6 +52,39 @@ class Data_pelanggaran extends CI_Controller {
 		);
 
 		$this->M_pelanggaran->update($id, $data);
+		redirect('data_pelanggaran');
+	}
+
+	public function panggil_ortu($id)
+	{
+		$pelanggaran = $this->M_pelanggaran->getById($id);
+		$no_ortu = $pelanggaran->no_ortu;
+
+		$data = [
+			'form_params' => [
+				'number' => $no_ortu,
+				'message' => 'Pesan panggilan untuk orang tua.',
+				// 'file_kirim' => 'Pesan panggilan untuk orang tua.',
+			]
+		];
+		
+		$client = new Client();
+
+		try {
+			$response = $client->post('http://127.0.0.1:8000/send-message', $data);
+			
+			if ($response->getStatusCode() == 200) {
+				$update_data = array(
+					'pemanggilan' => 1
+				);
+
+				$this->M_pelanggaran->update($id, $update_data);
+			}
+
+		} catch (\Exception $e) {
+			log_message('error', $e->getMessage());
+		}
+
 		redirect('data_pelanggaran');
 	}
 }

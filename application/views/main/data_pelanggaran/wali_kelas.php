@@ -73,6 +73,7 @@
 													<th style="width: 20%;">Tanggal Pelanggaran</th>
 													<th style="width: 20%;">Perihal</th>
 													<th style="width: 25%;">Detail Pelanggaran</th>
+													<th style="width: 25%;">Pemanggilan Ortu</th>
 													<th style="width: 35%;">Action</th>
 												</tr>
 											</thead>
@@ -84,8 +85,18 @@
 														<td><?= date('d-m-Y', strtotime($value->tgl_pelanggaran)) ?></td>
 														<td><?= $value->judul_pelaporan ?></td>
 														<td><?= $value->ket_pelaporan ?></td>
+														<td>					
+															<?php
+															if ($value->pemanggilan == 1) {
+																echo "YA";
+															} elseif ($value->pemanggilan == 0) {
+																echo "TIDAK";
+															}
+															?>
+														</td>
 														<td>
 															<button class="btn btn-primary btn-edit" data-id="<?= $value->id_pelaporan ?>">Beri Tindak Lanjut</button>
+															<a class="btn btn-danger" href="<?= base_url('panggil_ortu/').$value->id_pelaporan ?>">Panggil Orang Tua</a>
 														</td>
 													</tr>		
 												<?php endforeach; ?>												
