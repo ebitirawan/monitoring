@@ -22,9 +22,9 @@
 													<div class="row">
 														<div class="col-lg-6">
 															<div class="form-group">
-																<label for="expired_date" class="text-gray-900">Tanggal Peanggaran</label>
+																<label for="tgl_pelanggaran" class="text-gray-900">Tanggal Peanggaran</label>
 																<input type="date" class="form-control form-control"
-																	id="expired_date" name="expired_date">
+																	id="tgl_pelanggaran" name="tgl_pelanggaran">
 															</div>
 															<div class="form-group">
 																<label for="siswa" class="text-gray-900">Nama Siswa</label>

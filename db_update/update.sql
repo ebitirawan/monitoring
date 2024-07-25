@@ -19,3 +19,6 @@ alter table tbl_siswa
 alter table tbl_siswa
     modify nama_ortu varchar(255) not null;
 
+alter table tbl_pelaporan
+    add tgl_pelanggaran date not null after id_siswa;
+

@@ -29,9 +29,10 @@ class Lapor extends CI_Controller {
 		$data = array(
 			'id_wali_kelas'		=> 1,
 			'id_siswa'			=> $this->input->post('siswa'),
+			'tgl_pelanggaran'	=> $this->input->post('tgl_pelanggaran'),
 			'judul_pelaporan'	=> $this->input->post('perihal'),
 			'ket_pelaporan'		=> $this->input->post('detail_pelanggaran'),
-			'status_pelaporan'	=> 0,
+			'status_pelaporan'	=> 1,
 			'pemanggilan'		=> 0,
 			'tindak_lanjut'		=> '-',
 			'selesai'			=> 0,
