@@ -52,21 +52,24 @@ class Siswa extends CI_Controller {
 
 	public function update()
 	{
-		$id = $this->input->post('id_siswa');
+		$id = $this->input->post('edit_siswa_id');
+
+		var_dump($id);
+		die;
 		$data = array(
-			'nip_nisn' => $this->input->post('nip_nisn'),
-			'nama_siswa' => $this->input->post('nama_siswa'),
-			'tgl_lahir' => $this->input->post('tgl_lahir'),
-			'jk' => $this->input->post('jk'),
+			'nip_nisn' => $this->input->post('edit_nisn'),
+			'nama_siswa' => $this->input->post('edit_nama_siswa'),
+			'tgl_lahir' => $this->input->post('edit_tgl_lahir'),
+			'jk' => $this->input->post('edit_jk'),
 			'id_wali_kelas' => 1,
-			'nama_ortu' => $this->input->post('nama_ortu'),
-			'no_ortu' => $this->input->post('no_ortu'),
-			'alamat' => $this->input->post('alamat'),
+			'nama_ortu' => $this->input->post('edit_nama_ortu'),
+			'no_ortu' => $this->input->post('edit_no_ortu'),
+			'alamat' => $this->input->post('edit_alamat'),
 			'updated_at' => date('Y-m-d H:i:s')
 		);
 
-		$this->M_siswa->update($id, $data);
-		redirect('siswa');
+		// $this->M_siswa->update($id, $data);
+		// redirect('siswa');
 	}
 
 	public function delete($id)

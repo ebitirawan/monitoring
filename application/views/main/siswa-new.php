@@ -11,7 +11,7 @@
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
-							<form id="editUserForm" action="<?= base_url('siswa/update')?>" method="POST">
+							<form id="editUserForm" action="<?= base_url('siswa-update')?>" method="POST">
 								<div class="modal-body">
 									<input type="hidden" id="edit_siswa_id" name="edit_siswa_id">
 									
@@ -174,7 +174,7 @@
 														<button class="btn btn-info btn-circle btn-sm btn-edit" data-id="<?= $row->id_siswa; ?>">
 															<i class="fas fa-pen"></i>
 														</button>
-														<a href="<?= base_url('user/delete/').$row->id_siswa; ?>" class="btn btn-danger btn-circle btn-sm">
+														<a href="<?= base_url('siswa/delete/').$row->id_siswa; ?>" class="btn btn-danger btn-circle btn-sm">
 															<i class="fas fa-trash"></i>
 														</a>
 													</td>

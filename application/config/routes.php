@@ -72,7 +72,7 @@ $route['user/delete/(:any)'] = 'user/delete/$1';
 $route['siswa'] = 'siswa';
 $route['siswa/add'] = 'siswa/add';
 $route['siswa/(:any)'] = 'siswa/show/$1';
-$route['siswa/update'] = 'siswa/update';
+$route['siswa-update'] = 'siswa/update';
 $route['siswa/delete'] = 'siswa/delete';
 
 // Laporan
