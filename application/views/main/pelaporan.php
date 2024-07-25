@@ -18,11 +18,11 @@
 												<div class="text-left">
 													<h1 class="h4 text-gray-900 mb-4">Pelaporan Pelanggaran Baru</h1>
 												</div>
-												<form class="user" action="<?= base_url('lapor/submit')?>" method="POST">
+												<form class="user" action="<?= base_url('lapor-insert')?>" method="POST">
 													<div class="row">
 														<div class="col-lg-6">
 															<div class="form-group">
-																<label for="expired_date" class="text-gray-900">Tanggal Kadalursa</label>
+																<label for="expired_date" class="text-gray-900">Tanggal Peanggaran</label>
 																<input type="date" class="form-control form-control"
 																	id="expired_date" name="expired_date">
 															</div>
@@ -30,6 +30,9 @@
 																<label for="siswa" class="text-gray-900">Nama Siswa</label>
 																<select class="form-control form-control" id="siswa" name="siswa">
 																	<option value="" selected>Pilih Siswa</option>
+																	<?php foreach($siswa as $s): ?>
+																	<option value="<?= $s->id_siswa ?>"><?= $s->nama_siswa ?></option>
+																	<?php endforeach; ?>
 																</select>
 															</div>	
 															<div class="form-group">
@@ -41,12 +44,9 @@
 														</div>
 														<div class="col-lg-6">
 															<div class="form-group">
-                                                      
-                                                        <label for="detail_pelanggaran">Detail Pelanggaran:</label>
-                                                        <textarea class="form-control" name="detail_pelanggaran" id="detail_pelanggaran" rows="4" required></textarea>
-    
-                                                    </div>
-															
+																<label for="detail_pelanggaran">Detail Pelanggaran:</label>
+																<textarea class="form-control" name="detail_pelanggaran" id="detail_pelanggaran" rows="4" required></textarea>
+															</div>
 														</div>
 													</div>
 													<button type="submit" class="btn btn-primary btn-user btn-block">
@@ -64,3 +64,8 @@
                 <!-- /.container-fluid -->
 
 				<script src="<?= base_url('public/'); ?>vendor/jquery/jquery.min.js"></script>
+				<script>
+					$(document).ready(function(){
+						$('#siswa').select2();
+					});
+				</script>

@@ -77,4 +77,5 @@ $route['siswa/delete'] = 'siswa/delete';
 
 // Laporan
 $route['lapor'] = 'lapor';
+$route['lapor-insert'] = 'lapor/insert';
 
