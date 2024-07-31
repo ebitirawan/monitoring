@@ -37,7 +37,7 @@
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link" href="<?= base_url('pemanggilan') ?>">
+						<a class="nav-link" href="<?= base_url('data-pelanggaran') ?>">
 							<i class="fas fa-chart-pie"></i>
 							<span>Data Pelaporan</span></a>
 					</li>
