@@ -21,8 +21,8 @@ class Data_pelanggaran extends CI_Controller {
 			$data['walikelas'] = $this->M_pelanggaran->getPelanggaranBelumSelesaiBk();
 			$data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesaiBk();
 		} else if ($this->session['role'] == 2) {
-			$data['walikelas'] = $this->M_pelanggaran->getPelanggaranBelumSelesaiWk($this->session['id_user']);
-			$data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesaiWk($this->session['id_user']);
+			$data['walikelas'] = $this->M_pelanggaran->getPelanggaranBelumSelesaiWk($this->session['id']);
+			$data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesaiWk($this->session['id']);
 		} else {
 			$data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesai();
 		}

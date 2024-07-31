@@ -16,7 +16,7 @@ class Lapor extends CI_Controller {
 	{
 		$data['title'] = $this->title;
 		$data['session'] = (object)$this->session;
-		$data['siswa'] = $this->db->where('id_wali_kelas',$this->session['id_user'])->get('tbl_siswa')->result();
+		$data['siswa'] = $this->db->where('id_wali_kelas',$this->session['id'])->get('tbl_siswa')->result();
 		$this->load->view('template/header',$data);
 		$this->load->view('template/navbar',$data);
 		$this->load->view('template/topbar',$data);
@@ -27,7 +27,7 @@ class Lapor extends CI_Controller {
 	public function insert()
 	{
 		$data = array(
-			'id_wali_kelas'		=> $this->session['id_user'],
+			'id_wali_kelas'		=> $this->session['id'],
 			'id_siswa'			=> $this->input->post('siswa'),
 			'tgl_pelanggaran'	=> $this->input->post('tgl_pelanggaran'),
 			'judul_pelaporan'	=> $this->input->post('perihal'),

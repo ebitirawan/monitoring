@@ -26,7 +26,7 @@ class User extends CI_Controller {
 
 	public function show($id)
 	{
-		$data = $this->db->get_where('tbl_user',['id_user' => $id])->row();
+		$data = $this->db->get_where('tbl_user',['id' => $id])->row();
 
 		header('Content-Type: application/json');
 		echo json_encode($data);
