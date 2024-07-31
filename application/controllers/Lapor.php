@@ -38,21 +38,10 @@ class Lapor extends CI_Controller {
 			'selesai'			=> 0,
 			'ket_selesai'		=> '-',
 			'created_at'		=> date('Y-m-d H:i:s'),
+			
 		);
 
 		$this->db->insert('tbl_pelaporan',$data);
 		redirect('lapor');
-	}
-
-	public function verifikasi()
-	{
-		$data['title'] = $this->title;
-		$data['session'] = (object)$this->session;
-		$data['pelaporan'] = $this->db->get('tbl_pelaporan')->result();
-		$this->load->view('template/header',$data);
-		$this->load->view('template/navbar',$data);
-		$this->load->view('template/topbar',$data);
-		$this->load->view('main/pelaporan_detail',$data);
-		$this->load->view('template/footer',$data);
 	}
 }

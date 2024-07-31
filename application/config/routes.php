@@ -83,3 +83,6 @@ $route['data-pelanggaran'] = 'data_pelanggaran';
 $route['data-pelanggaran/(:any)'] = 'data_pelanggaran/get_by_id/$1';
 $route['data-pelanggaran-update'] = 'data_pelanggaran/update';
 $route['panggil_ortu/(:any)'] = 'data_pelanggaran/panggil_ortu/$1';
+
+// verifikasi
+$route['verifikasi'] = 'verifikasi';
