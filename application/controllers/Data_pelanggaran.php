@@ -26,10 +26,7 @@ class Data_pelanggaran extends CI_Controller {
 		} else {
 			$data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesai();
 		}
-
-
-		$data['walikelas'] = $this->M_pelanggaran->getPelanggaranBelumSelesaiWk(1);
-		$data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesaiWk(1);
+		
 		$this->load->view('template/header',$data);
 		$this->load->view('template/navbar',$data);
 		$this->load->view('template/topbar',$data);
