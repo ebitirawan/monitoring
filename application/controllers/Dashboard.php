@@ -6,9 +6,9 @@ class Dashboard extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// checkLogin();
-		// checkAkses([0,1,2]);
-		$this->title = "dashboard";
+		checkLogin();
+		checkAkses([1,2,3]);
+		$this->title = "Dashboard";
 		$this->session = $this->session->userdata();
 	}
 

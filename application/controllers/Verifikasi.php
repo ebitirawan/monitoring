@@ -6,7 +6,8 @@ class Verifikasi extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('PelanggaranModel');
+		checkLogin();
+		checkAkses([1]);
         $this->title = "Verifikasi";
         $this->session = $this->session->userdata();
     }
@@ -15,7 +16,7 @@ class Verifikasi extends CI_Controller {
     {
         $data['title'] = $this->title;
         $data['session'] = (object)$this->session;
-        $data['pelaporans'] = $this->PelanggaranModel->belumterverifikasi();
+        $data['pelaporans'] = $this->M_pelanggaran->belumterverifikasi();
         
         $this->load->view('template/header', $data);
         $this->load->view('template/navbar', $data);
@@ -27,7 +28,7 @@ class Verifikasi extends CI_Controller {
     public function detail($id_pelaporan)
     {
         // Ambil data detail pelanggaran dari model
-        $data['pelaporan'] = $this->PelanggaranModel->getById($id_pelaporan);
+        $data['pelaporan'] = $this->M_pelanggaran->getById($id_pelaporan);
         
         if (!$data['pelaporan']) {
             show_404(); // Tampilkan halaman 404 jika data tidak ditemukan

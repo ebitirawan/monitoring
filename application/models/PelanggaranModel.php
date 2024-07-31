@@ -73,4 +73,29 @@ class PelanggaranModel extends CI_Model
         return $query->result();
     }
 
+    // Mengambil pelanggaran yang belum selesai dan sesuai dengan id_wali_kelas
+    public function getPelanggaranBelumSelesaiBk()
+    {
+        $query = $this->db->select('a.*, b.nama_siswa, b.nip_nisn, c.nama_user')
+                          ->from('tbl_pelaporan a')
+                          ->join('tbl_siswa b', 'a.id_siswa = b.id_siswa', 'left')
+                          ->join('tbl_user c', 'a.id_wali_kelas = c.id_user', 'left')
+                          ->where('a.selesai', 0)
+                          ->where('a.status_pelaporan', 3)
+                          ->get();
+        return $query->result();
+    }
+
+    // Mengambil pelanggaran selesai berdasarkan id_wali_kelas
+    public function getPelanggaranSelesaiBk()
+    {
+        $query = $this->db->select('a.*, b.nama_siswa, b.nip_nisn, c.nama_user')
+                          ->from('tbl_pelaporan a')
+                          ->join('tbl_siswa b', 'a.id_siswa = b.id_siswa', 'left')
+                          ->join('tbl_user c', 'a.id_wali_kelas = c.id_user', 'left')
+                          ->where('a.selesai', 1)
+                          ->where('a.status_pelaporan', 3)
+                          ->get();
+        return $query->result();
+    }
 }

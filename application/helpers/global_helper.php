@@ -21,11 +21,20 @@
         }
     }
 
+    if (!function_exists('app_config')) {
+        function app_config()
+        {
+            $ci = &get_instance();
+
+            return $ci->db->get('tbl_user_system')->limit(1)->row();
+        }
+    }
+
     if (!function_exists('checkAkses')) {
         function checkAkses($required_levels)
 		{
 			$CI =& get_instance();
-			$user_level = $CI->session->userdata('level');
+			$user_level = $CI->session->userdata('role');
 			
 			if (!is_array($required_levels)) {
 				$required_levels = array($required_levels);

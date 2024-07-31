@@ -6,8 +6,8 @@ class Data_pelanggaran extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// checkLogin();
-		// checkAkses([0,1,2]);
+		checkLogin();
+		checkAkses([1,2,3]);
 		$this->title = "Data Pelanggaran";
 		$this->session = $this->session->userdata();
 	}
@@ -16,14 +16,28 @@ class Data_pelanggaran extends CI_Controller {
 	{
 		$data['title'] = $this->title;
 		$data['session'] = (object)$this->session;
+
+		if ($this->session['role'] == 1) {
+			$data['walikelas'] = $this->M_pelanggaran->getPelanggaranBelumSelesaiBk();
+			$data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesaiBk();
+		} else if ($this->session['role'] == 2) {
+			$data['walikelas'] = $this->M_pelanggaran->getPelanggaranBelumSelesaiWk($this->session['id_user']);
+			$data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesaiWk($this->session['id_user']);
+		} else {
+			$data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesai();
+		}
+
+
 		$data['walikelas'] = $this->M_pelanggaran->getPelanggaranBelumSelesaiWk(1);
 		$data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesaiWk(1);
-		// $data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesai();
 		$this->load->view('template/header',$data);
 		$this->load->view('template/navbar',$data);
 		$this->load->view('template/topbar',$data);
-		$this->load->view('main/data_pelanggaran/wali_kelas',$data);
-		// $this->load->view('main/data_pelanggaran/index',$data);
+		if ($this->session['role'] == 3) {
+			$this->load->view('main/data_pelanggaran/index',$data);
+		} else {
+			$this->load->view('main/data_pelanggaran/wali_kelas',$data);
+		}
 		$this->load->view('template/footer',$data);
 	}
 
@@ -59,6 +73,7 @@ class Data_pelanggaran extends CI_Controller {
 	{
 		$pelanggaran = $this->M_pelanggaran->getById($id);
 		$no_ortu = $pelanggaran->no_ortu;
+		$url = app_config()->hook_api_wa;
 
 		$data = [
 			'form_params' => [
@@ -71,7 +86,7 @@ class Data_pelanggaran extends CI_Controller {
 		$client = new Client();
 
 		try {
-			$response = $client->post('http://127.0.0.1:8000/send-message', $data);
+			$response = $client->post($url, $data);
 			
 			if ($response->getStatusCode() == 200) {
 				$update_data = array(

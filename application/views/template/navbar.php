@@ -15,8 +15,44 @@
                     <span>Dashboard</span></a>
             </li>
 
+			<?php if($session->role == 1): ?>
 			
-			<!-- <?php if ($session->role == 0 || $session->role == 1) { ?> -->
+            <hr class="sidebar-divider">
+			
+            <div class="sidebar-heading">
+                Pelaporan
+            </div>
+
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url('verifikasi') ?>">
+					<i class="fas fa-fw fa-pills"></i>
+					<span>Verifikasi Pelanggaran</span></a>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url('data-pelanggaran') ?>">
+					<i class="fas fa-chart-pie"></i>
+					<span>Data Pelaporan</span></a>
+			</li>
+			
+			<hr class="sidebar-divider">
+			
+			<div class="sidebar-heading">
+				Setting
+			</div>
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url('setting') ?>">
+					<i class="fas fa-fw fa-book"></i>
+					<span>Pengaturan Utama</span></a>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url('user') ?>">
+				<i class="fas fa-fw fa-user"></i>
+					<span>User</span></a>
+			</li>
+
+			<?php elseif($session->role == 2): ?>
 			
             <hr class="sidebar-divider">
 			
@@ -29,63 +65,40 @@
                 <i class="fas fa-file-circle"></i>
 					<span>Pelaporan</span></a>
 			</li>
-				<!-- <?php if ($session->role == 0) { ?> -->
-					<li class="nav-item">
-						<a class="nav-link" href="<?= base_url('verifikasi') ?>">
-							<i class="fas fa-fw fa-pills"></i>
-							<span>Verifikasi Pelanggaran</span></a>
-					</li>
 
-					<li class="nav-item">
-						<a class="nav-link" href="<?= base_url('data-pelanggaran') ?>">
-							<i class="fas fa-chart-pie"></i>
-							<span>Data Pelaporan</span></a>
-					</li>
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url('data-pelanggaran') ?>">
+					<i class="fas fa-chart-pie"></i>
+					<span>Data Pelaporan</span></a>
+			</li>
 			
-					<hr class="sidebar-divider">
-					
-					<div class="sidebar-heading">
-						Siswa
-					</div>
-					
-					<li class="nav-item">
-						<a class="nav-link" href="<?= base_url('siswa') ?>">
-						<i class="far fa-address-card"></i>
-							<span>Data Siswa</span></a>
-					</li>
-					
-					<hr class="sidebar-divider">
-					
-					<div class="sidebar-heading">
-						Setting
-					</div>
-					<li class="nav-item">
-						<a class="nav-link" href="<?= base_url('setting') ?>">
-							<i class="fas fa-fw fa-book"></i>
-							<span>Pengaturan Utama</span></a>
-					</li>
-
-					<li class="nav-item">
-						<a class="nav-link" href="<?= base_url('user') ?>">
-						<i class="fas fa-fw fa-user"></i>
-							<span>User</span></a>
-					</li>
-				<!-- <?php } ?> -->
-			<!-- <?php } ?> -->
+			<hr class="sidebar-divider">
 			
-			<!-- <?php if ($session->role == 2) { ?> -->
-				<hr class="sidebar-divider">
+			<div class="sidebar-heading">
+				Siswa
+			</div>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url('siswa') ?>">
+				<i class="far fa-address-card"></i>
+					<span>Data Siswa</span></a>
+			</li>
 
-				<div class="sidebar-heading">
-					Pelanggaran
-				</div>
+			<?php elseif($session->role == 3): ?>
+			
+            <hr class="sidebar-divider">
+			
+            <div class="sidebar-heading">
+                Pelaporan
+            </div>
 
-				<li class="nav-item">
-					<a class="nav-link" href="<?= base_url('data-pelanggaran') ?>">
-						<i class="fas fa-fw fa-pills"></i>
-						<span>Data Pelaporan</span></a>
-				</li>
-			<!-- <?php } ?> -->
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url('data-pelanggaran') ?>">
+					<i class="fas fa-chart-pie"></i>
+					<span>Data Pelaporan</span></a>
+			</li>
+
+			<?php endif; ?>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

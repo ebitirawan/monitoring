@@ -14,7 +14,7 @@ class AuthModel extends CI_Model
             $data = array(
 				'id' => $checkuser->id_user,
                 'username' => $checkuser->username,
-                'name' => $checkuser->nama,
+                'name' => $checkuser->nama_user,
                 'role' => $checkuser->role
             );
 

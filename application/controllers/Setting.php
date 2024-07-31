@@ -6,8 +6,8 @@ class Setting extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// checkLogin();
-		// checkAkses([0,1,2]);
+		checkLogin();
+		checkAkses([1]);
 		$this->title = "Setting";
 		$this->session = $this->session->userdata();
 	}
