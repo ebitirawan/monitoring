@@ -25,8 +25,7 @@
         function app_config()
         {
             $ci = &get_instance();
-
-            return $ci->db->get('tbl_user_system')->where('id_user_system',1)->row();
+			return $ci->db->where('id_user_system', 1)->get('tbl_user_system')->row();
         }
     }
 

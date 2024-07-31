@@ -44,7 +44,7 @@ class PelanggaranModel extends CI_Model
     // Mengambil pelanggaran berdasarkan id_pelaporan
     public function getById($id)
     {
-        $query = $this->db->select('a.*, b.nama_siswa, b.nip_nisn, c.nama_user')
+        $query = $this->db->select('a.*, b.nama_siswa, b.nip_nisn, b.no_ortu, c.nama_user')
                           ->from('tbl_pelaporan a')
                           ->join('tbl_siswa b', 'a.id_siswa = b.id_siswa', 'left')
                           ->join('tbl_user c', 'a.id_wali_kelas = c.id_user', 'left')
