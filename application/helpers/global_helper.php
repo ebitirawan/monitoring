@@ -26,7 +26,7 @@
         {
             $ci = &get_instance();
 
-            return $ci->db->get('tbl_user_system')->limit(1)->row();
+            return $ci->db->get('tbl_user_system')->where('id_user_system',1)->row();
         }
     }
 
