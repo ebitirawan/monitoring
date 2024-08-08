@@ -15,7 +15,7 @@
                     <span>Dashboard</span></a>
             </li>
 
-			<?php if($session->role == 1): ?>
+			<?php if($this->session->userdata('role') == 1): ?>
 			
             <hr class="sidebar-divider">
 			
@@ -52,7 +52,7 @@
 					<span>User</span></a>
 			</li>
 
-			<?php elseif($session->role == 2): ?>
+			<?php elseif($this->session->userdata('role') == 2): ?>
 			
             <hr class="sidebar-divider">
 			
@@ -84,7 +84,7 @@
 					<span>Data Siswa</span></a>
 			</li>
 
-			<?php elseif($session->role == 3): ?>
+			<?php elseif($this->session->userdata('role') == 3): ?>
 			
             <hr class="sidebar-divider">
 			

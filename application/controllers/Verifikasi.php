@@ -9,13 +9,11 @@ class Verifikasi extends CI_Controller {
 		checkLogin();
 		checkAkses([1]);
         $this->title = "Verifikasi";
-        $this->session = $this->session->userdata();
     }
 
     public function index()
     {
         $data['title'] = $this->title;
-        $data['session'] = (object)$this->session;
         $data['pelaporans'] = $this->M_pelanggaran->belumterverifikasi();
         
         $this->load->view('template/header', $data);
@@ -37,7 +35,6 @@ class Verifikasi extends CI_Controller {
 
 
         $data['title'] = "Detail Pelanggaran";
-        $data['session'] = (object)$this->session;
 
         // Load view untuk menampilkan detail
         $this->load->view('template/header', $data);

@@ -9,13 +9,11 @@ class Setting extends CI_Controller {
 		checkLogin();
 		checkAkses([1]);
 		$this->title = "Setting";
-		$this->session = $this->session->userdata();
 	}
 
 	public function index()
 	{
 		$data['title'] = $this->title;
-		$data['session'] = (object)$this->session;
 		$data['setting'] = $this->db->get('tbl_user_system')->row();
 		$this->load->view('template/header',$data);
 		$this->load->view('template/navbar',$data);

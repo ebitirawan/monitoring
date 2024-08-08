@@ -9,13 +9,11 @@ class Dashboard extends CI_Controller {
 		checkLogin();
 		checkAkses([1,2,3]);
 		$this->title = "Dashboard";
-		$this->session = $this->session->userdata();
 	}
 
 	public function index()
 	{
 		$data['title'] = $this->title;
-		$data['session'] = (object)$this->session;
 		$data['siswa'] = $this->M_siswa->getAll();
 		$this->load->view('template/header',$data);
 		$this->load->view('template/navbar',$data);
