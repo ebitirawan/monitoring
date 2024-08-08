@@ -78,4 +78,9 @@ class User extends CI_Controller {
 		$this->db->delete('tbl_user');
 		redirect('user');
 	}
+	public function getUserById($id)
+{
+    $user = $this->db->get_where('tbl_user', ['id_user' => $id])->row();
+    echo json_encode($user);
+}
 }

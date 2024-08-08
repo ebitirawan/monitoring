@@ -19,9 +19,13 @@
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url('public/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 	<!-- Custom styles for this page -->
 	<link href="<?= base_url('public/'); ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
 
 </head>
 

@@ -38,7 +38,8 @@
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Selamat datang di Lapor Siswa!</h1>
+                                        <img src="<?= base_url('assets/Picture1.png') ?>" alt="logo">      
+                                        <h1 class="h4 text-gray-900 mb-4">Selamat datang di Lapor Siswa <br>SMP NEGERI 4 GORONTALO </br></h1>
                                     </div>
                                     <form class="user" action="<?= base_url('login_proses') ?>" method="POST">
                                         <div class="form-group">

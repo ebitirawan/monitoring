@@ -177,22 +177,23 @@
 						$('#dataTable').DataTable();
 					});
 
-					$('.btn-edit').click(function() {
-						var userId = $(this).data('id');
-						
-						$.ajax({
-							url: '<?= base_url('user') ?>/' + userId,
-							method: 'GET',
-							success: function(response) {
-								console.log(response);
-								
-								$('#edit_user_id').val(response.id_user);
-								$('#edit_nama_user').val(response.nama_user);
-								$('#edit_username').val(response.username);
-								$('#edit_role').val(response.role);
-								$('#edit_ruangan').val(response.nama_ruangan);
+				$('.btn-edit').click(function() {
+    var userId = $(this).data('id');
+    
+    $.ajax({
+        url: '<?= base_url('user/getUserById/') ?>' + userId, // Pastikan endpoint ini ada
+        method: 'GET',
+        dataType: 'json', // Pastikan respons adalah JSON
+        success: function(response) {
+            // Isi form dengan data yang diterima
+            $('#edit_user_id').val(response.id_user);
+            $('#edit_nama_user').val(response.nama_user);
+            $('#edit_username').val(response.username);
+            $('#edit_role').val(response.role);
+            $('#edit_ruangan').val(response.nama_ruangan);
 
-								$('#editUserModal').modal('show');
+            // Tampilkan modal edit
+            $('#editUserModal').modal('show');
 							}
 						});
 					});

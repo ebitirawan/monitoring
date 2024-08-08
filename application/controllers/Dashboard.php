@@ -17,6 +17,9 @@ class Dashboard extends CI_Controller {
 		$data['title'] = $this->title;
 		$data['session'] = (object)$this->session;
 		$data['siswa'] = $this->M_siswa->getAll();
+		$data['wali'] = $this->db->select('COUNT(*) as count')->from('tbl_pelaporan')->where('status_pelaporan',2)->get()->row();
+		$data['bk'] = $this->db->select('COUNT(*) as count')->from('tbl_pelaporan')->where('status_pelaporan',3)->get()->row();
+		$data['panggil'] = $this->db->select('COUNT(*) as count')->from('tbl_pelaporan')->where('pemanggilan',1)->get()->row();
 		$this->load->view('template/header',$data);
 		$this->load->view('template/navbar',$data);
 		$this->load->view('template/topbar',$data);
