@@ -9,20 +9,18 @@ class Data_pelanggaran extends CI_Controller {
 		checkLogin();
 		checkAkses([1,2,3]);
 		$this->title = "Data Pelanggaran";
-		$this->session = $this->session->userdata();
 	}
 
 	public function index()
 	{
 		$data['title'] = $this->title;
-		$data['session'] = (object)$this->session;
 
-		if ($this->session['role'] == 1) {
+		if ($this->session->userdata('role') == 1) {
 			$data['walikelas'] = $this->M_pelanggaran->getPelanggaranBelumSelesaiBk();
 			$data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesaiBk();
-		} else if ($this->session['role'] == 2) {
-			$data['walikelas'] = $this->M_pelanggaran->getPelanggaranBelumSelesaiWk($this->session['id']);
-			$data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesaiWk($this->session['id']);
+		} else if ($this->session->userdata('role') == 2) {
+			$data['walikelas'] = $this->M_pelanggaran->getPelanggaranBelumSelesaiWk($this->session->userdata('id'));
+			$data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesaiWk($this->session->userdata('id'));
 		} else {
 			$data['selesai'] = $this->M_pelanggaran->getPelanggaranSelesai();
 		}
@@ -30,7 +28,7 @@ class Data_pelanggaran extends CI_Controller {
 		$this->load->view('template/header',$data);
 		$this->load->view('template/navbar',$data);
 		$this->load->view('template/topbar',$data);
-		if ($this->session['role'] == 3) {
+		if ($this->session->userdata('role') == 3) {
 			$this->load->view('main/data_pelanggaran/index',$data);
 		} else {
 			$this->load->view('main/data_pelanggaran/wali_kelas',$data);
