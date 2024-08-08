@@ -45,6 +45,8 @@
     <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url('public/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
     <!-- Core plugin JavaScript-->
     <script src="<?= base_url('public/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
 
@@ -54,6 +56,21 @@
 
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url('public/'); ?>js/sb-admin-2.min.js"></script>
+	<script>
+		<?php if($this->session->flashdata('success')): ?>
+				Swal.fire({
+					title: 'Good job',
+					text: "<?= $this->session->flashdata('success'); ?>",
+					icon: 'success',
+				});
+			<?php elseif($this->session->flashdata('error')): ?>
+				Swal.fire({
+					title: 'Error',
+					text: "<?= $this->session->flashdata('error'); ?>",
+					icon: 'error',
+				});
+			<?php endif; ?>
+	</script>
 
 </body>
 

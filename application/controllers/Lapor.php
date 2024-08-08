@@ -40,6 +40,8 @@ class Lapor extends CI_Controller {
 		);
 
 		$this->db->insert('tbl_pelaporan',$data);
+
+		$this->session->set_flashdata('success', 'Berhasil Membuat Laporan !');
 		redirect('lapor');
 	}
 }

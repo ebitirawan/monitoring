@@ -1,10 +1,3 @@
-<head>
-    <!-- SweetAlert CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <!-- SweetAlert JS -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-</head>
-
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -72,24 +65,3 @@
 
 <!-- Scripts -->
 <script src="<?= base_url('public/'); ?>vendor/jquery/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $('#siswa').select2();
-    });
-
-    $('#pelaporanForm').on('submit', function(event) {
-        event.preventDefault(); // Prevent the form from submitting normally
-
-        Swal.fire({
-            title: 'Good job',
-            text: "berhasil menambahkan data",
-            icon: 'success',
-            
-        }).then((result) => {
-            if (result.isConfirmed) {
-                this.submit(); // Submit the form if confirmed
-            }
-        });
-    });
-</script>

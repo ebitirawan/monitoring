@@ -65,7 +65,7 @@
         <div class="row mb-3">
             <div class="col-md-12">
                 <div class="btn-container">
-                    <button id="btnBelumSelesai" onclick="tblBelumSelesai()" class="btn btn-info">Dalam Penanganan <?= $this->session['role'] == 1 ? "BK" : "Wali Kelas"; ?></button>
+                    <button id="btnBelumSelesai" onclick="tblBelumSelesai()" class="btn btn-info">Dalam Penanganan <?= $this->session->userdata('role') == 1 ? "BK" : "Wali Kelas"; ?></button>
                     <button id="btnSelesai" onclick="tblSelesai()" class="btn btn-secondary">Penanganan Laporan Selesai</button>
                 </div>
             </div>
